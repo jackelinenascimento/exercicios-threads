@@ -18,8 +18,8 @@ public class Principal {
 		}
 		
 		for(int i=1; i<3; i++) {			
-			Thread vetorComNroPar = new ThreadVetor(i, vetor);
-			vetorComNroPar.start();		
+			Thread v = new ThreadVetor(i, vetor);
+			v.start();		
 		}
 	}
 }

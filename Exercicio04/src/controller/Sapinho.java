@@ -4,10 +4,10 @@ import java.util.Random;
 
 public class Sapinho extends Thread {
 	
-	private double maxSalto;
-	private double distanciaCorrida;
+	private int maxSalto;
+	private int distanciaCorrida;
 	
-	public Sapinho(double maxSalto, double distanciaCorrida) {
+	public Sapinho(int maxSalto, int distanciaCorrida) {
 		this.maxSalto = maxSalto;
 		this.distanciaCorrida = distanciaCorrida;
 	}
@@ -18,23 +18,23 @@ public class Sapinho extends Thread {
 		
 	}
 	
-	private double saltar(double maxSalto) {	
+	private int saltar(int maxSalto) {	
 		Random gerador = new Random();
-		double salto = gerador.nextDouble()*maxSalto;
+		int salto = gerador.nextInt()*maxSalto;
 		return salto;
 	}
 	
-	private void caminhoPercorrido(double distanciaCorrida) {
+	private void caminhoPercorrido(int distanciaCorrida) {
 		
-		double caminho = 0;
+		int caminho = 0;
 		int pulos = 0;
 		
-		do {
+		while(caminho < distanciaCorrida){
 			caminho += saltar(maxSalto);
 			pulos++;
 			System.out.println("Pulo nro: " + pulos + " do sapinho id#" + getId());
-		} while(caminho < distanciaCorrida);
+		}
 		
-		System.out.println("Sapinho " + getId() + " ==> Distancia percorrida: " + caminho + " da distância total: " + distanciaCorrida);
+		System.out.println("Sapinho " + getId() + " ==> Chegou!");
 	}
 }
